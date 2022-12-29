@@ -48,7 +48,7 @@ jobs:
         run: |
           set -ex
           echo Pushing policy to OCI container registry
-          IMMUTABLE_REF=$(kwctl push -o json annotated-policy.wasm ghcr.io/kubewarden/policies/verify-image-signatures:latest | jq -r .immutable_ref)
+          IMMUTABLE_REF=$(kwctl push -o json annotated-policy.wasm mtr.devops.telekom.de/kubewarden/policies/verify-image-signatures:latest | jq -r .immutable_ref)
   
           echo Keyless signing of policy using cosign
           cosign sign ${IMMUTABLE_REF}
